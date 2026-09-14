@@ -41,3 +41,5 @@ make run
 
 `GET /health` returns the running commit SHA. See `Makefile` and the milestone
 sheet for why this is required.
+## Development Workflow
+The project uses Git branches and pull requests for controlled development.
