@@ -43,3 +43,6 @@ make run
 sheet for why this is required.
 ## Development Workflow
 The project uses Git branches and pull requests for controlled development.
+
+## Testing Workflow
+Automated tests will be executed through the CI pipeline.
