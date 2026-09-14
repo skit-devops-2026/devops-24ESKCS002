@@ -56,3 +56,5 @@ This repository contains the full-stack project and its DevOps implementation.
 CI pipeline is configured for automated testing.
 
 Automated tests run on every push.
+
+Continuous integration helps maintain project quality.
