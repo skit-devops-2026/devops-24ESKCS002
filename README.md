@@ -46,3 +46,6 @@ The project uses Git branches and pull requests for controlled development.
 
 ## Testing Workflow
 Automated tests will be executed through the CI pipeline.
+
+## Git Workflow
+Features are developed in separate branches and merged into main through pull requests.
