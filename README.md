@@ -52,3 +52,5 @@ Features are developed in separate branches and merged into main through pull re
 
 ## Project Information
 This repository contains the full-stack project and its DevOps implementation.
+
+CI pipeline is configured for automated testing.
