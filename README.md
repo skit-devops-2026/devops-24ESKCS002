@@ -58,3 +58,5 @@ CI pipeline is configured for automated testing.
 Automated tests run on every push.
 
 Continuous integration helps maintain project quality.
+
+CI workflow checks project tests automatically.
