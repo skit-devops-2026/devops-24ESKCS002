@@ -9,6 +9,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
@@ -24,7 +25,7 @@ jobs:
         working-directory: Backend
         run: npm test
 
-    docker:
+  docker:
     name: Build and Push Docker Images
     needs: test
     if: github.event_name == 'push'
