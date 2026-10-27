@@ -3,6 +3,7 @@ require('dotenv').config();
 const express  = require('express');
 const mongoose = require('mongoose');
 const cors     = require('cors');
+const client = require('prom-client');
 
 const authRoutes        = require('./routes/auth');
 const studentRoutes     = require('./routes/student');
@@ -11,6 +12,21 @@ const instituteRoutes   = require('./routes/institute');
 const opportunityRoutes = require('./routes/opportunity');
 
 const app = express();
+// Prometheus monitoring
+const register = new client.Registry();
+
+client.collectDefaultMetrics({
+  register
+});
+
+app.get('/metrics', async (req, res) => {
+  try {
+    res.set('Content-Type', register.contentType);
+    res.end(await register.metrics());
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
 
 // ── DATABASE ──────────────────────────────────────────────
 mongoose.connect(process.env.MONGO_URI)
@@ -19,10 +35,9 @@ mongoose.connect(process.env.MONGO_URI)
 
 // ── MIDDLEWARE ────────────────────────────────────────────
 app.use(cors({
-  origin: 'http://localhost:5173',   // Vite dev server
-  credentials: true                  // allow cookies/session
+origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+credentials: true
 }));
-app.use(express.json());
 
 
 
