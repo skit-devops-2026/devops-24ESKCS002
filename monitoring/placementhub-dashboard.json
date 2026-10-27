@@ -1,57 +1,62 @@
 {
-  "title": "PlacementHub Monitoring",
-  "uid": "placementhub-monitoring",
-  "schemaVersion": 39,
-  "version": 1,
-  "refresh": "15s",
-  "time": {
-    "from": "now-1h",
-    "to": "now"
-  },
-  "panels": [
-    {
-      "id": 1,
-      "title": "Backend Availability",
-      "type": "timeseries",
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "targets": [
-        {
-          "expr": "up{job=\"placementhub-backend\"}",
-          "legendFormat": "Backend availability",
-          "refId": "A"
-        }
-      ],
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 0
-      }
-    },
-    {
-      "id": 2,
-      "title": "Backend Memory Usage",
-      "type": "timeseries",
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "targets": [
-        {
-          "expr": "process_resident_memory_bytes{job=\"placementhub-backend\"}",
-          "legendFormat": "Memory in bytes",
-          "refId": "A"
-        }
-      ],
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 0
-      }
-    }
-  ]
+"annotations": {
+"list": []
+},
+"editable": true,
+"fiscalYearStartMonth": 0,
+"graphTooltip": 0,
+"id": null,
+"links": [],
+"panels": [
+{
+"datasource": {
+"type": "prometheus",
+"uid": "prometheus"
+},
+"fieldConfig": {
+"defaults": {
+"unit": "short"
+},
+"overrides": []
+},
+"gridPos": {
+"h": 8,
+"w": 12,
+"x": 0,
+"y": 0
+},
+"id": 1,
+"options": {
+"legend": {
+"displayMode": "list",
+"placement": "bottom"
+}
+},
+"targets": [
+{
+"expr": "up",
+"legendFormat": "{{job}}",
+"refId": "A"
+}
+],
+"title": "Prometheus Target Status",
+"type": "timeseries"
+}
+],
+"refresh": "10s",
+"schemaVersion": 39,
+"tags": [
+"placementhub",
+"devops"
+],
+"templating": {
+"list": []
+},
+"time": {
+"from": "now-1h",
+"to": "now"
+},
+"title": "PlacementHub Monitoring",
+"uid": "placementhub-monitoring",
+"version": 1
 }
