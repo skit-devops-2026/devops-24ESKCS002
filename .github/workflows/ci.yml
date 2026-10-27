@@ -1,4 +1,3 @@
-```yaml
 name: CI
 
 on:
@@ -73,4 +72,4 @@ jobs:
           tags: |
             ghcr.io/${{ steps.image.outputs.repository }}-frontend:latest
             ghcr.io/${{ steps.image.outputs.repository }}-frontend:${{ github.sha }}
-```
+
